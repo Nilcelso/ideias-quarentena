@@ -2,6 +2,7 @@
 const express = require("express")
 const server = express()
 
+// as ideias estão todas aqui...
 const ideas = [
     {
         img: "https://image.flaticon.com/icons/svg/2728/2728995.svg",
@@ -34,10 +35,6 @@ const ideas = [
 ]
 
 
-
-
-
-
 //configurar arquivos estaticos (css, scripts, imagens)
 server.use(express.static("public"))
 
@@ -51,12 +48,13 @@ nunjucks.configure("views", {
 
 
 //criei rota (/) depois do get
-// e capturo o pedido do cliente para responder 
+// e capturo o pedido do cliente para responder
 server.get("/", function(req, res) {
 
+    const reversedIdeas = [...ideas].reverse()
 
     let lastIdeas = []
-    for (let idea of ideas.reverse()) {
+    for (let idea of reversedIdeas) {
         if (lastIdeas.length < 2) {
             lastIdeas.push(idea)
         }
@@ -65,7 +63,11 @@ server.get("/", function(req, res) {
 })
 
 server.get("/ideas", function(req, res) {
-    return res.render("ideas.html")
+
+    const reversedIdeas = [...ideas].reverse()
+
+
+    return res.render("ideas.html", {ideas: ideas})
 })
 
 // liguei meu servidor na porta 3000

@@ -1,136 +1,36 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
+{% extends "layout.html" %}
+
+{% block title %}
     <title>Ideias - Casa Criativa</title>
+{% endblock title %}
 
-    <link rel="stylesheet" href="/style.css">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,600i,700,900&display=swap" rel="stylesheet">
-</head>
-<body id="page-ideas">
-    <div id="container">
-        <header>
-            <a href="/">
-                <img src="/logo.jpg" alt="Imagem da Logomarca">
-            </a>
+{% set bodyId = "page-ideas" %}
 
-            <nav>
-                <li><a href="/"> Início </a></li>
-                <li><a class="button" href="#" onclick="onOff()"> Nova Ideia </a></li>
-            </nav>
-        </header>
-    
-        <section id= "title">
-            <p>Em exibição</p>
-            <h1>Ideias</h1>
-        </section>
-    
-        <main>
-            <section id="ideas">
+{% block content %}
 
-                <div class="idea">
-                    <img 
-                        src=" https://image.flaticon.com/icons/svg/2728/2728995.svg" 
-                        alt="Imagem de curso de informação">
-    
-                    <div class="content">
-                        <h3>Cursos de Programaçãp</h3>
-                        <p>Estudo </p>
-                        <div class="description">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo est maxime laudantium facere tenetur ipsum, illo corrupti repudiandae impedit, esse pariatur laborum quasi hic blanditiis fugit quia assumenda ratione? Deserunt?
-                        </div>
-                        <a href="#">Ir para a ideia </a>
-                    </div>    
-                </div>
+<header>
+    <a href="/">
+        <img src="/logo.jpg" alt="Imagem da Logomarca">
+    </a>
+    <nav>
+        <li><a href="/"> Início </a></li>
+        <li><a class="button" href="#" onclick="onOff()"> Nova Ideia </a></li>
+    </nav>
+</header>
 
-                <div class="idea">
-                    <img 
-                        src=" https://image.flaticon.com/icons/svg/2728/2728995.svg" 
-                        alt="Imagem de curso de informação">
-    
-                    <div class="content">
-                        <h3>Cursos de Programaçãp</h3>
-                        <p>Estudo </p>
-                        <div class="description">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo est maxime laudantium facere tenetur ipsum, illo corrupti repudiandae impedit, esse pariatur laborum quasi hic blanditiis fugit quia assumenda ratione? Deserunt?
-                        </div>
-                        <a href="#">Ir para a ideia</a>
-                    </div>    
-                </div>
+<section id= "title">
+    <p>Em exibição</p>
+    <h1>Ideias</h1>
+</section>
 
-                <div class="idea">
-                    <img 
-                        src=" https://image.flaticon.com/icons/svg/2728/2728995.svg" 
-                        alt="Imagem de curso de informação">
-    
-                    <div class="content">
-                        <h3>Cursos de Programaçãp</h3>
-                        <p>Estudo </p>
-                        <div class="description">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo est maxime laudantium facere tenetur ipsum, illo corrupti repudiandae impedit, esse pariatur laborum quasi hic blanditiis fugit quia assumenda ratione? Deserunt?
-                        </div>
-                        <a href="#">Ir para a ideia</a>
-                    </div>    
-                </div>
+<main>
+    <section id="ideas">
+        {% include "all_ideas.html" %}
+    </section>
+</main>
 
-                <div class="idea">
-                    <img 
-                        src=" https://image.flaticon.com/icons/svg/2728/2728995.svg" 
-                        alt="Imagem de curso de informação">
-    
-                    <div class="content">
-                        <h3>Cursos de Programaçãp</h3>
-                        <p>Estudo </p>
-                        <div class="description">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo est maxime laudantium facere tenetur ipsum, illo corrupti repudiandae impedit, esse pariatur laborum quasi hic blanditiis fugit quia assumenda ratione? Deserunt?
-                        </div>
-                        <a href="#">Ir para a ideia</a>
-                    </div>    
-                </div>
-            </section>
-        </main>
-    
-        <footer>
-            Com ❤ <a href="https://www.facebook.com/nilcelso.sobrinho" target="_blank">Nildelso Sobrinho</a>
-        </footer>
-    </div>
-    
-    <!-- Modal -->
-    <div id="modal" class="hide">
-        <div class="content">
-            <h1>Nova ideia</h1>
-            <form action="">
+<footer>
+    Com ❤ <a href="https://www.facebook.com/nilcelso.sobrinho" target="_blank">Nildelso Sobrinho</a>
+</footer>
 
-                <div class="input-wrapper">
-                    <label for="title">Titulo da idea</label>
-                    <input type="text" name="title">
-                </div>
-
-                <div class="input-wrapper">
-                    <label for="category">Categoria</label>
-                    <input type="text" name="category">
-                </div>
-
-                <div class="input-wrapper">
-                    <label for="image">Link da Imagem</label>
-                    <input type="url" name="image">
-                </div>
-
-                <div class="input-wrapper">
-                    <label for="description">Digite uma Descrição para essa ideia</label>
-                    <textarea name="description" id="" cols="30" rows="10"></textarea>
-                </div>
-
-                <div class="input-wrapper">
-                    <label for="link">Link da idea</label>
-                    <input type="url" name="link">
-                </div>
-                <a href="#" onclick="onOff()">Voltar</a>
-                <button>Salvar</button>
-            </form>
-        </div>
-    </div>
-
-    <script src="/scripts.js"></script>
-</body>
-</html>
+{% endblock %}
